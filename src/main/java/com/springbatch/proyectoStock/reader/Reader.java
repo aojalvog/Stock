@@ -12,9 +12,17 @@ import org.springframework.stereotype.Component;
 import com.springbatch.proyectoStock.model.Stock;
 
 @Component
-// Importa el LOGGER
 
 public class Reader {
+
+	/**
+	 * Crea y configura un lector de archivos planos para leer objetos de tipo Stock
+	 * desde un archivo. Este lector utiliza un mapeador de líneas para convertir
+	 * líneas de texto en objetos Stock.
+	 *
+	 * @return un lector de archivos planos configurado para leer objetos Stock
+	 *         desde un archivo.
+	 */
 
 	@Bean
 	FlatFileItemReader<Stock> stockReader() {
@@ -29,6 +37,16 @@ public class Reader {
 		reader.setLineMapper(lineMapper());
 		return reader;
 	}
+
+	/**
+	 * Configura y devuelve un mapeador de líneas para convertir líneas de texto en
+	 * objetos de tipo Stock. Este mapeador utiliza un tokenizador delimitado para
+	 * dividir las líneas de texto en campos y un mapeador de conjuntos de campos de
+	 * BeanWrapper para convertir los campos en objetos Stock.
+	 *
+	 * @return un mapeador de líneas configurado para convertir líneas de texto en
+	 *         objetos Stock.
+	 */
 
 	// Método que dice cómo quiero leer
 	private LineMapper<Stock> lineMapper() {

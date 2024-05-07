@@ -10,6 +10,14 @@ public class JobCompletionNotificationListener implements JobExecutionListener {
 
 	private static final Logger log = LoggerFactory.getLogger(JobCompletionNotificationListener.class);
 
+	/**
+	 * Método llamado después de que se complete un trabajo. Registra un mensaje de
+	 * información en el registro si el estado del trabajo es COMPLETED.
+	 *
+	 * @param jobExecution el objeto JobExecution que contiene información sobre la
+	 *                     ejecución del trabajo
+	 */
+
 	@Override
 	public void afterJob(JobExecution jobExecution) {
 		if (jobExecution.getStatus() == BatchStatus.COMPLETED) {
