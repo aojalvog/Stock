@@ -15,7 +15,7 @@ public class Stock {
 
 	private Long id;
 
-	private Long stock;
+	private Long stockTotal;
 
 	private Long stockReal;
 
